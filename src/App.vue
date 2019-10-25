@@ -1,36 +1,35 @@
 <template>
-  <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-app-bar>
+    <v-app>
+        <div app>
+            <v-toolbar dense>
+                <v-toolbar-title>ORMAE</v-toolbar-title>
+            </v-toolbar>
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+            <v-content>
+                <PostCard :post-meta="postInfo"></PostCard>
+            </v-content>
+        </div>
+    </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+// import HelloWorld from "./components/HelloWorld";
+import PostCard from "./components/PostCard";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-  },
-  data: () => ({
-    //
-  }),
+    name: "App",
+    components: {
+        // HelloWorld
+        PostCard
+    },
+    data: () => ({
+        postInfo: {}
+    }),
+    mounted() {
+      let handle = this;
+      this.$http.get('/getpost').then(response => {
+        handle.postInfo = response.data;
+      });
+    }
 };
 </script>
