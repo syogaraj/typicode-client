@@ -2,7 +2,7 @@
     <v-app>
         <div app>
             <v-toolbar dense :dark="dark">
-                <v-toolbar-title>ORMAE</v-toolbar-title>
+                <v-toolbar-title>Typicode-Client</v-toolbar-title>
             </v-toolbar>
 
             <v-content>
