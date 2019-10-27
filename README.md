@@ -1,5 +1,7 @@
 # comment-client
 
+View for https://jsonplaceholder.typicode.com/comments. It will fetch data from the local server which is built on express and mysql. For server code, please refer [here](https://github.com/syogaraj/typicode-server)
+
 ## Project setup
 ```
 yarn install
